@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
 import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail } from 'lucide-react';
 
 // Custom WhatsApp SVG Icon to ensure perfect brand matching
@@ -15,7 +16,7 @@ const WhatsAppIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-export default function App() {
+function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
@@ -82,8 +83,8 @@ export default function App() {
                   <Terminal className="text-yellow-500" size={28} />
                 </div>
                 <div className="flex gap-4">
-                  <a href="https://github.com/brighto7700/shell-signal.git" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
-                  <a href="https://shellsignal.vercel.app/" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
+                  <a href="https://github.com/brighto7700/shell-signal" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
+                  <a href="https://shellsignal.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">ShellSignal</h3>
@@ -102,8 +103,9 @@ export default function App() {
                   <Cpu className="text-yellow-500" size={28} />
                 </div>
                 <div className="flex gap-4">
+                  {/* Note: I left the CodeBot github link empty since it wasn't provided, add it if you have one! */}
                   <a href="#" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
-                  <a href="https://telegram.com/teexy_bot" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
+                  <a href="https://t.me/teexy_bot" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">CodeBot</h3>
@@ -146,7 +148,7 @@ export default function App() {
               <span>Email</span>
             </a>
 
-            {/* New WhatsApp Button */}
+            {/* WhatsApp Button */}
             <a 
               href="https://wa.me/2348153765443" 
               target="_blank" 
@@ -167,6 +169,7 @@ export default function App() {
               <span>GitHub</span>
             </a>
             
+            {/* Note: Update your LinkedIn URL here when you have it! */}
             <a 
               href="https://linkedin.com/in/yourusername" 
               target="_blank" 
@@ -184,13 +187,14 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-gray-800/60 pt-8 pb-4 text-center px-6">
         <div className="flex justify-center items-center gap-6 text-gray-500 mb-6">
-          <a href="https://wa.me/2348153765443" className="hover:text-[#25D366] transition" title="WhatsApp">
+          <a href="https://wa.me/2348153765443" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition" title="WhatsApp">
             <WhatsAppIcon size={20} />
           </a>
-          <a href="https://linkedin.com/in/yourusername" className="hover:text-yellow-500 transition" title="LinkedIn">
+          {/* Update LinkedIn URL here too */}
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="LinkedIn">
             <Linkedin size={20} />
           </a>
-          <a href="https://github.com/brighto7700" className="hover:text-yellow-500 transition" title="GitHub">
+          <a href="https://github.com/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="GitHub">
             <Github size={20} />
           </a>
         </div>
@@ -203,5 +207,12 @@ export default function App() {
   );
 }
 
+// Ensure this is at the bottom so Vite mounts your app!
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-          
+
+              

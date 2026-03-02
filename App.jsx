@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail } from 'lucide-react';
+import './globals.css'; // <-- THIS IS THE NEW LINE!
 
 const WhatsAppIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -12,7 +13,6 @@ function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
-  // Now we just keep the Typewriter effect here!
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
@@ -194,4 +194,4 @@ if (rootElement && !rootElement.innerHTML) {
       <App />
     </React.StrictMode>
   );
-}
+}         

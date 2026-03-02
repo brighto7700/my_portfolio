@@ -12,6 +12,7 @@ function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
+  // Now we just keep the Typewriter effect here!
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
@@ -20,35 +21,7 @@ function App() {
       if (i > fullText.length) clearInterval(timer);
     }, 150);
 
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Bright Emmanuel",
-      "alternateName": "Brighto G",
-      "url": "https://brighto-g.vercel.app",
-      "image": "https://brighto-g.vercel.app/og-main.png",
-      "jobTitle": "Full-Stack Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Self-Employed"
-      },
-      "sameAs": [
-        "https://github.com/brighto7700",
-        "https://linkedin.com/in/brighto7700"
-      ]
-    };
-
-    const script = document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.textContent = JSON.stringify(structuredData);
-    document.head.appendChild(script);
-
-    return () => {
-      clearInterval(timer);
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -222,6 +195,3 @@ if (rootElement && !rootElement.innerHTML) {
     </React.StrictMode>
   );
 }
-
-
-          

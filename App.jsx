@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail } from 'lucide-react';
-import './globals.css'; // <-- THIS IS THE NEW LINE!
+import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail, BookOpen, Award, ArrowRight, User } from 'lucide-react';
+import './globals.css'; // Make sure this matches your CSS file name (index.css or globals.css)
 
 const WhatsAppIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -9,7 +9,7 @@ const WhatsAppIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-function App() {
+export default function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
@@ -20,53 +20,148 @@ function App() {
       i++;
       if (i > fullText.length) clearInterval(timer);
     }, 150);
-
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-300 font-sans selection:bg-yellow-500/30 selection:text-white pb-12">
-      <nav className="p-6 flex justify-between items-center max-w-6xl mx-auto">
+    <div className="min-h-screen bg-[#0a0a0a] text-gray-300 font-sans selection:bg-yellow-500/30 selection:text-white pb-12 overflow-x-hidden">
+      {/* Navigation */}
+      <nav className="p-6 flex justify-between items-center max-w-6xl mx-auto sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-900">
         <div className="text-yellow-500 font-mono font-bold text-xl">
           &gt; {text}<span className="animate-pulse">_</span>
         </div>
-        <div className="space-x-6 hidden md:flex items-center">
+        <div className="space-x-6 hidden md:flex items-center text-sm font-medium">
+          <a href="#about" className="hover:text-yellow-500 transition">About</a>
+          <a href="#writing" className="hover:text-yellow-500 transition">Articles</a>
           <a href="#projects" className="hover:text-yellow-500 transition">Projects</a>
-          <a href="#stack" className="hover:text-yellow-500 transition">Stack</a>
-          <a href="#contact" className="border border-yellow-500/50 px-5 py-2 rounded-full text-yellow-500 hover:bg-yellow-500 hover:text-black transition font-medium">
+          <a href="#contact" className="border border-yellow-500/50 px-5 py-2 rounded-full text-yellow-500 hover:bg-yellow-500 hover:text-black transition">
             Connect
           </a>
         </div>
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pt-16 md:pt-24">
+        
+        {/* Hero Section */}
         <section className="mb-32">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-            Building the <span className="text-yellow-500">Future</span><br className="hidden md:block" /> of the Web.
+          <div className="inline-block px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-sm font-medium mb-6 animate-fade-in">
+            🚀 Full-Stack Developer & Technical Writer
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+            Building for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Next Billion</span> Users.
           </h1>
           <p className="text-lg md:text-xl max-w-2xl text-gray-400 leading-relaxed mb-8">
-            Full-stack Developer based in Nigeria. Specializing in <span className="text-white font-medium">Next.js</span>, 
-            <span className="text-white font-medium"> Node.js</span>, and <span className="text-white font-medium">Supabase</span>. 
-            Currently focused on building Micro-SaaS and developer tools.
+            I engineer fast, scalable web applications and AI tools, while breaking down complex concepts into top-tier technical articles.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#projects" className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition">
-              View My Work
+            <a href="#projects" className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition flex items-center gap-2">
+              <Terminal size={18} /> View My Work
             </a>
-            <a href="#contact" className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition border border-gray-700">
-              Get in Touch
+            <a href="#writing" className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition border border-gray-700 flex items-center gap-2">
+              <BookOpen size={18} /> Read My Articles
             </a>
           </div>
         </section>
 
-        <section id="projects" className="mb-32">
+        {/* Extended About Section */}
+        <section id="about" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+              <User className="text-yellow-500" /> System.whoami()
+            </h2>
+            <div className="h-[1px] flex-1 bg-gray-800"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+              <p>
+                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a software engineer and technical writer based in Nigeria. My journey in tech is driven by a simple mission: to build robust, accessible tools that solve real problems.
+              </p>
+              <p>
+                Currently, I'm balancing my <span className="text-yellow-500 font-medium">JUPEB program</span> while actively developing Micro-SaaS products and Telegram bots. When I'm not writing code, I'm writing *about* code—translating technical jargon into clear, actionable articles for platforms like SitePoint and DEV Community.
+              </p>
+              <p>
+                My expertise lies in tying together beautiful UI/UX with powerful backend architectures using <strong className="text-white font-medium">Next.js, Python, and Supabase</strong>.
+              </p>
+            </div>
+            
+            {/* Decorative Code Window */}
+            <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6 font-mono text-sm shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-orange-500"></div>
+              <div className="flex gap-2 mb-4">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="text-gray-300">
+                <span className="text-blue-400">const</span> <span className="text-yellow-300">developer</span> = {'{'}
+                <br/>
+                &nbsp;&nbsp;name: <span className="text-green-400">'Bright Emmanuel'</span>,
+                <br/>
+                &nbsp;&nbsp;role: <span className="text-green-400">'Full-Stack Engineer'</span>,
+                <br/>
+                &nbsp;&nbsp;location: <span className="text-green-400">'Nigeria'</span>,
+                <br/>
+                &nbsp;&nbsp;focus: [<span className="text-green-400">'Micro-SaaS'</span>, <span className="text-green-400">'AI Bots'</span>, <span className="text-green-400">'Tech Writing'</span>],
+                <br/>
+                &nbsp;&nbsp;status: <span className="text-green-400">'Building the future 🚀'</span>
+                <br/>
+                {'}'};
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* NEW Technical Writing Section */}
+        <section id="writing" className="mb-32 scroll-mt-24">
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-white">Selected Works</h2>
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+              <BookOpen className="text-yellow-500" /> Published Writing
+            </h2>
             <div className="h-[1px] flex-1 bg-gray-800"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 hover:bg-gray-900/60 flex flex-col h-full">
+            
+            {/* SitePoint Article - Highlighted */}
+            <a href="https://www.sitepoint.com/next-js-for-the-next-billion-users" target="_blank" rel="noopener noreferrer" 
+               className="group relative border border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-500 transition bg-gradient-to-br from-yellow-500/5 to-transparent flex flex-col h-full overflow-hidden">
+              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1">
+                <Award size={14} /> TOP ARTICLE
+              </div>
+              <div className="text-yellow-500 font-semibold text-sm mb-3 tracking-wider uppercase">SitePoint</div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition">Next.js for the Next Billion Users</h3>
+              <p className="text-gray-400 mb-8 flex-grow">An in-depth look at how Next.js features like SSR, ISR, and edge computing are crucial for delivering highly performant web applications to global audiences.</p>
+              <div className="flex items-center text-yellow-500 font-medium group-hover:translate-x-2 transition-transform mt-auto">
+                Read Article <ArrowRight size={18} className="ml-2" />
+              </div>
+            </a>
+
+            {/* DEV Community Article */}
+            <a href="https://dev.to/brighto7700" target="_blank" rel="noopener noreferrer" 
+               className="group border border-gray-800 p-8 rounded-2xl hover:border-gray-600 transition bg-gray-900/30 flex flex-col h-full">
+              <div className="text-gray-400 font-semibold text-sm mb-3 tracking-wider uppercase">DEV Community</div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-300 transition">Exploring Modern Web Architecture</h3>
+              <p className="text-gray-400 mb-8 flex-grow">A collection of tutorials, thoughts, and technical deep-dives covering React, Python, and the journey of building software in public.</p>
+              <div className="flex items-center text-gray-300 font-medium group-hover:translate-x-2 transition-transform mt-auto">
+                View My DEV Profile <ArrowRight size={18} className="ml-2" />
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+              <Terminal className="text-yellow-500" /> Selected Works
+            </h2>
+            <div className="h-[1px] flex-1 bg-gray-800"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 flex flex-col h-full">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-3 bg-yellow-500/10 rounded-lg">
                   <Terminal className="text-yellow-500" size={28} />
@@ -85,7 +180,7 @@ function App() {
               </div>
             </div>
 
-            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 hover:bg-gray-900/60 flex flex-col h-full">
+            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 flex flex-col h-full">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-3 bg-yellow-500/10 rounded-lg">
                   <Cpu className="text-yellow-500" size={28} />
@@ -106,7 +201,8 @@ function App() {
           </div>
         </section>
 
-        <section id="stack" className="mb-32">
+        {/* The Stack Section */}
+        <section id="stack" className="mb-32 scroll-mt-24">
            <h2 className="text-3xl font-bold text-white mb-12 text-center">The Tech Stack</h2>
            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {['Next.js', 'React', 'Node.js', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Git & GitHub'].map((tech) => (
@@ -117,10 +213,11 @@ function App() {
            </div>
         </section>
 
-        <section id="contact" className="mb-20 bg-gray-900/30 border border-gray-800 rounded-3xl p-8 md:p-16 text-center">
+        {/* Contact Section */}
+        <section id="contact" className="mb-20 bg-gray-900/30 border border-gray-800 rounded-3xl p-8 md:p-16 text-center scroll-mt-24">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Let's Build Something.</h2>
           <p className="text-gray-400 mb-10 max-w-xl mx-auto text-lg">
-            I'm currently open for new opportunities. Whether you have a question or just want to chat code, I'll try my best to get back to you!
+            Whether you're looking to collaborate on a new project, need a technical article written, or just want to chat code—my inbox is open!
           </p>
           
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
@@ -129,7 +226,7 @@ function App() {
               className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-xl transition shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)] hover:-translate-y-1"
             >
               <Mail size={20} />
-              <span>Email</span>
+              <span>Email Me</span>
             </a>
 
             <a 
@@ -165,10 +262,13 @@ function App() {
         </section>
       </main>
 
-      <footer className="border-t border-gray-800/60 pt-8 pb-4 text-center px-6">
+      <footer className="border-t border-gray-800/60 pt-8 pb-8 text-center px-6">
         <div className="flex justify-center items-center gap-6 text-gray-500 mb-6">
           <a href="https://wa.me/2348153765443" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition" title="WhatsApp">
             <WhatsAppIcon size={20} />
+          </a>
+          <a href="https://www.sitepoint.com/author/bright-emmanuel/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="SitePoint">
+            <BookOpen size={20} />
           </a>
           <a href="https://linkedin.com/in/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="LinkedIn">
             <Linkedin size={20} />
@@ -184,14 +284,4 @@ function App() {
       </footer>
     </div>
   );
-}
-
-const rootElement = document.getElementById('root');
-if (rootElement && !rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-}         
+            }

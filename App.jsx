@@ -9,7 +9,7 @@ const WhatsAppIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-export default function App() {
+function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
@@ -126,7 +126,7 @@ export default function App() {
             {/* SitePoint Article - Highlighted */}
             <a href="https://www.sitepoint.com/next-js-for-the-next-billion-users" target="_blank" rel="noopener noreferrer" 
                className="group relative border border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-500 transition bg-gradient-to-br from-yellow-500/5 to-transparent flex flex-col h-full overflow-hidden">
-              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1">
+              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
                 <Award size={14} /> TOP ARTICLE
               </div>
               <div className="text-yellow-500 font-semibold text-sm mb-3 tracking-wider uppercase">SitePoint</div>
@@ -284,4 +284,15 @@ export default function App() {
       </footer>
     </div>
   );
-            }
+}
+
+// THE MISSING MOUNTING BLOCK!
+const rootElement = document.getElementById('root');
+if (rootElement && !rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

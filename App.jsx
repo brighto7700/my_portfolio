@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail, BookOpen, Award, ArrowRight, User } from 'lucide-react';
-import './globals.css'; // Make sure this matches your CSS file name (index.css or globals.css)
+import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail, BookOpen, Award, ArrowRight, User, Trophy } from 'lucide-react';
+import './globals.css';
 
 const WhatsAppIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -9,7 +9,7 @@ const WhatsAppIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-function App() {
+export default function App() {
   const [text, setText] = useState('');
   const fullText = "Brighto G";
 
@@ -81,7 +81,7 @@ function App() {
                 Currently, I'm balancing my <span className="text-yellow-500 font-medium">JUPEB program</span> while actively developing Micro-SaaS products and Telegram bots. When I'm not writing code, I'm writing *about* code—translating technical jargon into clear, actionable articles for platforms like SitePoint and DEV Community.
               </p>
               <p>
-                My expertise lies in tying together beautiful UI/UX with powerful backend architectures using <strong className="text-white font-medium">Next.js, Python, and Supabase</strong>.
+                My expertise lies in tying together beautiful UI/UX with powerful backend architectures using <strong className="text-white font-medium">Next.js, Python, Go, and Supabase</strong>.
               </p>
             </div>
             
@@ -112,7 +112,7 @@ function App() {
           </div>
         </section>
 
-        {/* NEW Technical Writing Section */}
+        {/* Technical Writing Section */}
         <section id="writing" className="mb-32 scroll-mt-24">
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-bold text-white flex items-center gap-3">
@@ -125,9 +125,9 @@ function App() {
             
             {/* SitePoint Article - Highlighted */}
             <a href="https://www.sitepoint.com/next-js-for-the-next-billion-users" target="_blank" rel="noopener noreferrer" 
-               className="group relative border border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-500 transition bg-gradient-to-br from-yellow-500/5 to-transparent flex flex-col h-full overflow-hidden">
-              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
-                <Award size={14} /> TOP ARTICLE
+               className="group relative border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 hover:bg-gray-900/60 flex flex-col h-full overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gray-800 text-gray-300 text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
+                <Award size={14} /> FEATURED
               </div>
               <div className="text-yellow-500 font-semibold text-sm mb-3 tracking-wider uppercase">SitePoint</div>
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition">Next.js for the Next Billion Users</h3>
@@ -137,14 +137,17 @@ function App() {
               </div>
             </a>
 
-            {/* DEV Community Article */}
-            <a href="https://dev.to/brighto7700" target="_blank" rel="noopener noreferrer" 
-               className="group border border-gray-800 p-8 rounded-2xl hover:border-gray-600 transition bg-gray-900/30 flex flex-col h-full">
-              <div className="text-gray-400 font-semibold text-sm mb-3 tracking-wider uppercase">DEV Community</div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-300 transition">Exploring Modern Web Architecture</h3>
-              <p className="text-gray-400 mb-8 flex-grow">A collection of tutorials, thoughts, and technical deep-dives covering React, Python, and the journey of building software in public.</p>
-              <div className="flex items-center text-gray-300 font-medium group-hover:translate-x-2 transition-transform mt-auto">
-                View My DEV Profile <ArrowRight size={18} className="ml-2" />
+            {/* DEV Community Article - NEW AWARD WINNER */}
+            <a href="https://dev.to/brighto7700/your-next-real-time-feature-probably-doesnt-need-websockets-go-sse-at-500-concurrent-connections-39ne" target="_blank" rel="noopener noreferrer" 
+               className="group relative border border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-500 transition bg-gradient-to-br from-yellow-500/5 to-transparent flex flex-col h-full overflow-hidden">
+              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
+                <Trophy size={14} /> TOP GO AUTHOR
+              </div>
+              <div className="text-blue-400 font-semibold text-sm mb-3 tracking-wider uppercase">DEV Community</div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition">Your Next Real-Time Feature Probably Doesn't Need WebSockets</h3>
+              <p className="text-gray-400 mb-8 flex-grow">An architectural deep dive into why Server-Sent Events (SSE) paired with Go might be a better, lighter alternative to WebSockets at 500+ concurrent connections.</p>
+              <div className="flex items-center text-blue-400 font-medium group-hover:translate-x-2 transition-transform mt-auto">
+                Read Article <ArrowRight size={18} className="ml-2" />
               </div>
             </a>
 
@@ -205,7 +208,7 @@ function App() {
         <section id="stack" className="mb-32 scroll-mt-24">
            <h2 className="text-3xl font-bold text-white mb-12 text-center">The Tech Stack</h2>
            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {['Next.js', 'React', 'Node.js', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Git & GitHub'].map((tech) => (
+              {['Next.js', 'React', 'Node.js', 'Go (Golang)', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS'].map((tech) => (
                 <div key={tech} className="bg-gray-900/40 border border-gray-800 p-4 text-center rounded-xl hover:bg-gray-800 hover:border-gray-700 transition cursor-default font-medium text-gray-300 hover:text-yellow-500">
                   {tech}
                 </div>
@@ -286,7 +289,6 @@ function App() {
   );
 }
 
-// THE MISSING MOUNTING BLOCK!
 const rootElement = document.getElementById('root');
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);

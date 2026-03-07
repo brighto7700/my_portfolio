@@ -171,7 +171,7 @@ export default function App() {
                 </div>
                 <div className="flex gap-4">
                   <a href="https://github.com/brighto7700/shell-signal" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
-                  <a href="https://shellsignal.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
+                  <a href="https://shellsignal.brgt.site/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">ShellSignal</h3>

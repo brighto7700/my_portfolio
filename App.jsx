@@ -125,7 +125,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Redesigned About Section - Fixed Aspect Ratio & Privacy */}
+        {/* Redesigned About Section - Reverted to Tall Portrait */}
         <section id="about" className="mb-32 scroll-mt-32">
           <div className="grid md:grid-cols-12 gap-12 items-center">
             
@@ -160,14 +160,14 @@ export default function App() {
             <div className="md:col-span-5 relative group mt-10 md:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
               
-              {/* FIXED IMAGE HEIGHT: Square on mobile, 4:5 on desktop */}
-              <div className="aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
+              {/* RESTORED TALL PORTRAIT ASPECT RATIO */}
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
                 <img 
                   src={profilePhoto} 
                   alt="Bright Emmanuel" 
-                  className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
               </div>
 
               <div className="absolute -bottom-8 -left-4 md:-left-12 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl z-20 font-mono text-xs hover:-translate-y-2 transition-transform duration-500">

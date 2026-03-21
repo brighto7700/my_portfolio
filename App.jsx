@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Terminal, Github, Linkedin, ExternalLink, Cpu, Mail, BookOpen, Award, ArrowRight, User, Trophy } from 'lucide-react';
+import { 
+  Terminal, Github, Linkedin, ExternalLink, Cpu, Mail, 
+  BookOpen, Award, ArrowRight, User, Trophy, LayoutTemplate, Zap, Smartphone
+} from 'lucide-react';
 import './globals.css';
+
+const profilePhoto = '/profile_pic.png';
 
 const WhatsAppIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -24,17 +29,25 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-300 font-sans selection:bg-yellow-500/30 selection:text-white pb-12 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-cyan-500/30 selection:text-white pb-12 overflow-x-hidden">
+      
+      {/* Glow Effects */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <div className="fixed bottom-0 right-0 w-[600px] h-[400px] bg-indigo-500/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+
       {/* Navigation */}
-      <nav className="p-6 flex justify-between items-center max-w-6xl mx-auto sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-900">
-        <div className="text-yellow-500 font-mono font-bold text-xl">
-          &gt; {text}<span className="animate-pulse">_</span>
+      <nav className="p-6 flex justify-between items-center max-w-6xl mx-auto sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/5">
+        <div className="text-white font-bold text-xl flex items-center gap-2 tracking-tight">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-slate-900 shadow-lg">
+            <User size={18} />
+          </div>
+          {text}<span className="animate-pulse text-cyan-400">_</span>
         </div>
-        <div className="space-x-6 hidden md:flex items-center text-sm font-medium">
-          <a href="#about" className="hover:text-yellow-500 transition">About</a>
-          <a href="#writing" className="hover:text-yellow-500 transition">Articles</a>
-          <a href="#projects" className="hover:text-yellow-500 transition">Projects</a>
-          <a href="#contact" className="border border-yellow-500/50 px-5 py-2 rounded-full text-yellow-500 hover:bg-yellow-500 hover:text-black transition">
+        <div className="space-x-8 hidden md:flex items-center text-sm font-medium">
+          <a href="#about" className="hover:text-cyan-400 transition-colors">About</a>
+          <a href="#projects" className="hover:text-cyan-400 transition-colors">Forge</a>
+          <a href="#writing" className="hover:text-cyan-400 transition-colors">Writing</a>
+          <a href="#contact" className="bg-white/10 border border-white/10 px-5 py-2.5 rounded-full text-white hover:bg-cyan-500 hover:text-slate-950 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)]">
             Connect
           </a>
         </div>
@@ -43,247 +56,301 @@ export default function App() {
       <main className="max-w-6xl mx-auto px-6 pt-16 md:pt-24">
         
         {/* Hero Section */}
-        <section className="mb-32">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-sm font-medium mb-6 animate-fade-in">
-            🚀 Full-Stack Developer & Technical Writer
+        <section className="mb-40 pt-10 relative">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-8 animate-fade-in shadow-[0_0_20px_rgba(34,211,238,0.15)]">
+            <Smartphone size={16} className="text-cyan-400" /> 100% Mobile-Engineered
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-            Building for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Next Billion</span> Users.
+          <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+            No Laptop. <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500">No Excuses.</span>
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl text-gray-400 leading-relaxed mb-8">
-            I engineer fast, scalable web applications and AI tools, while breaking down complex concepts into top-tier technical articles.
+          <p className="text-lg md:text-2xl max-w-3xl text-slate-400 leading-relaxed mb-10 font-light">
+            I'm a full-stack developer engineering Next.js applications, Supabase backends, and award-winning technical articles—all entirely from an Android phone.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#projects" className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition flex items-center gap-2">
-              <Terminal size={18} /> View My Work
+            <a href="#projects" className="px-8 py-4 bg-cyan-500 text-slate-950 font-bold rounded-xl hover:bg-cyan-400 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:-translate-y-1">
+              Explore Forge <ArrowRight size={18} />
             </a>
-            <a href="#writing" className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition border border-gray-700 flex items-center gap-2">
+            <a href="#writing" className="px-8 py-4 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10 flex items-center gap-2 hover:-translate-y-1">
               <BookOpen size={18} /> Read My Articles
             </a>
           </div>
         </section>
 
-        {/* Extended About Section */}
-        <section id="about" className="mb-32 scroll-mt-24">
-          <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-              <User className="text-yellow-500" /> System.whoami()
+        {/* Flagship Project: FORGE */}
+        <section id="projects" className="mb-32 scroll-mt-32">
+          <div className="flex items-center gap-4 mb-10">
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3 tracking-tight">
+              <LayoutTemplate className="text-cyan-400" /> Flagship Platform
             </h2>
-            <div className="h-[1px] flex-1 bg-gray-800"></div>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
-              <p>
-                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a software engineer and technical writer based in Nigeria. My journey in tech is driven by a simple mission: to build robust, accessible tools that solve real problems.
+
+          <div className="relative group rounded-3xl overflow-hidden border border-cyan-500/30 bg-slate-900/50 p-8 md:p-12 transition-all duration-500 hover:border-cyan-400/60 shadow-[0_0_40px_rgba(34,211,238,0.05)] hover:shadow-[0_0_60px_rgba(34,211,238,0.15)]">
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-blue-600/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+            
+            <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4">
+                  Now Live
+                </div>
+                <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Forge</h3>
+                <h4 className="text-xl text-cyan-400 font-medium mb-4">The Mobile Developer Hub</h4>
+                <p className="text-lg text-slate-400 mb-8 leading-relaxed">
+                  A developer platform built specifically for people who code on Android. It features a Script Vault with 20+ one-line <code>curl | bash</code> installs, interactive MDX Termux guides, and a One-Tap Configurator that generates instant development environments for Node, Python, and Go.
+                </p>
+                <div className="flex gap-3 flex-wrap mb-8">
+                  <span className="bg-white/5 border border-white/10 text-slate-300 px-4 py-1.5 rounded-lg text-sm font-medium">Next.js 14</span>
+                  <span className="bg-white/5 border border-white/10 text-slate-300 px-4 py-1.5 rounded-lg text-sm font-medium">Supabase</span>
+                  <span className="bg-white/5 border border-white/10 text-slate-300 px-4 py-1.5 rounded-lg text-sm font-medium">GitHub OAuth</span>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <a href="https://forge.brgt.site" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-slate-950 font-bold rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-2">
+                    Visit forge.brgt.site <ExternalLink size={18} />
+                  </a>
+                  <a href="https://dev.to/brighto7700/i-built-a-full-stack-developer-platform-from-my-android-phone-no-laptop-no-excuses-37ol" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white/5 text-white font-medium rounded-lg hover:bg-white/10 transition-colors border border-white/10 flex items-center gap-2">
+                    <BookOpen size={18} /> Read the Story
+                  </a>
+                </div>
+              </div>
+              
+              <div className="aspect-video bg-slate-950 rounded-2xl border border-white/10 relative overflow-hidden flex flex-col items-center justify-center group-hover:scale-[1.02] transition-transform duration-700 shadow-2xl p-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 z-0"></div>
+                <div className="z-10 text-left w-full font-mono text-sm text-slate-300 bg-slate-900/80 p-4 rounded-lg border border-white/5">
+                  <div className="text-slate-500 mb-2">// Generate your dev environment</div>
+                  <span className="text-cyan-400">curl</span> -fsSL https://forge.brgt.site/api/config/bm9kZS1sdH | <span className="text-indigo-400">bash</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Other Projects (Bento Grid) */}
+        <section className="mb-32">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="group border border-white/10 p-8 rounded-3xl hover:border-cyan-500/50 transition duration-500 bg-white/[0.02] hover:bg-white/[0.04] flex flex-col h-full relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full"></div>
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                  <Terminal className="text-cyan-400" size={24} />
+                </div>
+                <div className="flex gap-4">
+                  <a href="https://github.com/brighto7700/shell-signal" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition"><Github size={22} /></a>
+                  <a href="https://shellsignal.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition"><ExternalLink size={22} /></a>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">ShellSignal</h3>
+              <p className="text-slate-400 mb-8 flex-grow">A real-time news dashboard for developers. Curating the best of tech directly to your terminal-style UI.</p>
+              <div className="flex gap-2 flex-wrap mt-auto">
+                <span className="text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Next.js</span>
+                <span className="text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Tailwind</span>
+                <span className="text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">API</span>
+              </div>
+            </div>
+
+            <div className="group border border-white/10 p-8 rounded-3xl hover:border-cyan-500/50 transition duration-500 bg-white/[0.02] hover:bg-white/[0.04] flex flex-col h-full relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-indigo-500/10 blur-3xl rounded-full"></div>
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                  <Cpu className="text-indigo-400" size={24} />
+                </div>
+                <div className="flex gap-4">
+                  <a href="https://github.com/brighto7700" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition"><Github size={22} /></a>
+                  <a href="https://t.me/teexy_bot" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition"><ExternalLink size={22} /></a>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">CodeBot</h3>
+              <p className="text-slate-400 mb-8 flex-grow">An AI-powered Telegram assistant built with Python and the Groq API, deployed on Render for maximum uptime.</p>
+              <div className="flex gap-2 flex-wrap mt-auto">
+                <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Python</span>
+                <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Groq API</span>
+                <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Render</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Redesigned About Section */}
+        <section id="about" className="mb-32 scroll-mt-32">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            
+            <div className="md:col-span-7 space-y-6">
+              <div className="flex items-center gap-4 mb-6">
+                <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+                  <User className="text-cyan-400" /> About The Builder
+                </h2>
+              </div>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a 16-year-old developer and technical writer based in Nigeria. 
               </p>
-              <p>
-                Currently, I'm balancing my <span className="text-yellow-500 font-medium">JUPEB program</span> while actively developing Micro-SaaS products and Telegram bots. When I'm not writing code, I'm writing *about* code—translating technical jargon into clear, actionable articles for platforms like SitePoint and DEV Community.
+              <p className="text-slate-400 text-lg leading-relaxed">
+                I am currently balancing my JUPEB program to pursue Computer Science, while architecting real-world applications. The catch? <strong className="text-white">Every single line of code, deployment, and article is written on a Tecno Spark 8c Android phone using Termux.</strong>
               </p>
-              <p>
-                My expertise lies in tying together beautiful UI/UX with powerful backend architectures using <strong className="text-white font-medium">Next.js, Python, Go, and Supabase</strong>.
+              <p className="text-slate-400 text-lg leading-relaxed">
+                I believe constraints breed innovation. That philosophy is what led me to build Forge, and it's what drives me to write technical deep-dives for platforms like Forem and SitePoint to help the next generation of mobile developers.
               </p>
+              
+              <div className="pt-6">
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">The Mobile Stack</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Termux', 'Next.js 14', 'Supabase', 'Go (Golang)', 'Python', 'Node.js', 'pxxl.app', 'Vercel'].map((tech) => (
+                    <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 font-medium shadow-sm hover:border-cyan-500/50 transition-colors cursor-default">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
             
-            {/* Decorative Code Window */}
-            <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6 font-mono text-sm shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-orange-500"></div>
-              <div className="flex gap-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <div className="md:col-span-5 relative group mt-10 md:mt-0">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+              
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
+                <img 
+                  src={profilePhoto} 
+                  alt="Bright Emmanuel" 
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
               </div>
-              <div className="text-gray-300">
-                <span className="text-blue-400">const</span> <span className="text-yellow-300">developer</span> = {'{'}
-                <br/>
-                &nbsp;&nbsp;name: <span className="text-green-400">'Bright Emmanuel'</span>,
-                <br/>
-                &nbsp;&nbsp;role: <span className="text-green-400">'Full-Stack Engineer'</span>,
-                <br/>
-                &nbsp;&nbsp;location: <span className="text-green-400">'Nigeria'</span>,
-                <br/>
-                &nbsp;&nbsp;focus: [<span className="text-green-400">'Micro-SaaS'</span>, <span className="text-green-400">'AI Bots'</span>, <span className="text-green-400">'Tech Writing'</span>],
-                <br/>
-                &nbsp;&nbsp;status: <span className="text-green-400">'Building the future 🚀'</span>
-                <br/>
-                {'}'};
+
+              <div className="absolute -bottom-8 -left-8 md:-left-12 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl z-20 font-mono text-xs hover:-translate-y-2 transition-transform duration-500">
+                <div className="flex gap-1.5 mb-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="text-slate-300">
+                  <span className="text-blue-400">const</span> <span className="text-yellow-300">setup</span> = {'{'}
+                  <br/>
+                  &nbsp;&nbsp;hardware: <span className="text-green-400">'Tecno Spark 8c'</span>,
+                  <br/>
+                  &nbsp;&nbsp;environment: <span className="text-green-400">'Termux'</span>,
+                  <br/>
+                  &nbsp;&nbsp;excuses: <span className="text-blue-400">null</span>
+                  <br/>
+                  {'}'};
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Technical Writing Section */}
-        <section id="writing" className="mb-32 scroll-mt-24">
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-              <BookOpen className="text-yellow-500" /> Published Writing
+        <section id="writing" className="mb-32 scroll-mt-32">
+          <div className="flex items-center gap-4 mb-10">
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3 tracking-tight">
+              <BookOpen className="text-cyan-400" /> Published Writing
             </h2>
-            <div className="h-[1px] flex-1 bg-gray-800"></div>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             
-            {/* SitePoint Article - Highlighted */}
             <a href="https://www.sitepoint.com/next-js-for-the-next-billion-users" target="_blank" rel="noopener noreferrer" 
-               className="group relative border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 hover:bg-gray-900/60 flex flex-col h-full overflow-hidden">
-              <div className="absolute top-0 right-0 bg-gray-800 text-gray-300 text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
+               className="group relative border border-white/10 p-8 rounded-3xl hover:border-cyan-500/50 transition duration-500 bg-white/[0.02] hover:bg-white/[0.04] flex flex-col h-full overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl flex items-center gap-1 shadow-lg">
                 <Award size={14} /> FEATURED
               </div>
-              <div className="text-yellow-500 font-semibold text-sm mb-3 tracking-wider uppercase">SitePoint</div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition">Next.js for the Next Billion Users</h3>
-              <p className="text-gray-400 mb-8 flex-grow">An in-depth look at how Next.js features like SSR, ISR, and edge computing are crucial for delivering highly performant web applications to global audiences.</p>
-              <div className="flex items-center text-yellow-500 font-medium group-hover:translate-x-2 transition-transform mt-auto">
+              <div className="text-cyan-400 font-semibold text-sm mb-3 tracking-widest uppercase">SitePoint</div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">Next.js for the Next Billion Users</h3>
+              <p className="text-slate-400 mb-8 flex-grow leading-relaxed">An in-depth look at how Next.js features like SSR, ISR, and edge computing are crucial for delivering highly performant web applications to global audiences.</p>
+              <div className="flex items-center text-cyan-400 font-medium group-hover:translate-x-2 transition-transform mt-auto">
                 Read Article <ArrowRight size={18} className="ml-2" />
               </div>
             </a>
 
-            {/* DEV Community Article - NEW AWARD WINNER */}
             <a href="https://dev.to/brighto7700/your-next-real-time-feature-probably-doesnt-need-websockets-go-sse-at-500-concurrent-connections-39ne" target="_blank" rel="noopener noreferrer" 
-               className="group relative border border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-500 transition bg-gradient-to-br from-yellow-500/5 to-transparent flex flex-col h-full overflow-hidden">
-              <div className="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-sm">
+               className="group relative border border-white/10 p-8 rounded-3xl hover:border-indigo-500/50 transition duration-500 bg-white/[0.02] hover:bg-white/[0.04] flex flex-col h-full overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl flex items-center gap-1 shadow-lg">
                 <Trophy size={14} /> TOP GO AUTHOR
               </div>
-              <div className="text-blue-400 font-semibold text-sm mb-3 tracking-wider uppercase">DEV Community</div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition">Your Next Real-Time Feature Probably Doesn't Need WebSockets</h3>
-              <p className="text-gray-400 mb-8 flex-grow">An architectural deep dive into why Server-Sent Events (SSE) paired with Go might be a better, lighter alternative to WebSockets at 500+ concurrent connections.</p>
-              <div className="flex items-center text-blue-400 font-medium group-hover:translate-x-2 transition-transform mt-auto">
+              <div className="text-indigo-400 font-semibold text-sm mb-3 tracking-widest uppercase">DEV Community</div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">Your Next Real-Time Feature Probably Doesn't Need WebSockets</h3>
+              <p className="text-slate-400 mb-8 flex-grow leading-relaxed">An architectural deep dive into why Server-Sent Events (SSE) paired with Go might be a better, lighter alternative to WebSockets at 500+ concurrent connections.</p>
+              <div className="flex items-center text-indigo-400 font-medium group-hover:translate-x-2 transition-transform mt-auto">
                 Read Article <ArrowRight size={18} className="ml-2" />
               </div>
             </a>
 
           </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="mb-32 scroll-mt-24">
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-              <Terminal className="text-yellow-500" /> Selected Works
-            </h2>
-            <div className="h-[1px] flex-1 bg-gray-800"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-yellow-500/10 rounded-lg">
-                  <Terminal className="text-yellow-500" size={28} />
-                </div>
-                <div className="flex gap-4">
-                  <a href="https://github.com/brighto7700/shell-signal" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
-                  <a href="https://shellsignal.brgt.site/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">ShellSignal</h3>
-              <p className="text-gray-400 mb-6 flex-grow">A real-time news dashboard for developers. Curating the best of tech directly to your terminal-style UI.</p>
-              <div className="flex gap-2 flex-wrap mt-auto">
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">Next.js</span>
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">Tailwind</span>
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">API</span>
-              </div>
-            </div>
-
-            <div className="group border border-gray-800 p-8 rounded-2xl hover:border-yellow-500/50 transition bg-gray-900/30 flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-yellow-500/10 rounded-lg">
-                  <Cpu className="text-yellow-500" size={28} />
-                </div>
-                <div className="flex gap-4">
-                  <a href="https://github.com/brighto7700" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><Github size={22} /></a>
-                  <a href="https://t.me/teexy_bot" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><ExternalLink size={22} /></a>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">CodeBot</h3>
-              <p className="text-gray-400 mb-6 flex-grow">An AI-powered Telegram assistant built with Python and the Groq API, deployed on Render for maximum uptime.</p>
-              <div className="flex gap-2 flex-wrap mt-auto">
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">Python</span>
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">Groq API</span>
-                <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-md text-xs font-medium">Render</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* The Stack Section */}
-        <section id="stack" className="mb-32 scroll-mt-24">
-           <h2 className="text-3xl font-bold text-white mb-12 text-center">The Tech Stack</h2>
-           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {['Next.js', 'React', 'Node.js', 'Go (Golang)', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS'].map((tech) => (
-                <div key={tech} className="bg-gray-900/40 border border-gray-800 p-4 text-center rounded-xl hover:bg-gray-800 hover:border-gray-700 transition cursor-default font-medium text-gray-300 hover:text-yellow-500">
-                  {tech}
-                </div>
-              ))}
-           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="mb-20 bg-gray-900/30 border border-gray-800 rounded-3xl p-8 md:p-16 text-center scroll-mt-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Let's Build Something.</h2>
-          <p className="text-gray-400 mb-10 max-w-xl mx-auto text-lg">
-            Whether you're looking to collaborate on a new project, need a technical article written, or just want to chat code—my inbox is open!
-          </p>
-          
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-            <a 
-              href="mailto:brighto7700@gmail.com" 
-              className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-xl transition shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)] hover:-translate-y-1"
-            >
-              <Mail size={20} />
-              <span>Email Me</span>
-            </a>
+        <section id="contact" className="mb-20 scroll-mt-32">
+          <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-slate-950/0 to-slate-950/0 pointer-events-none"></div>
 
-            <a 
-              href="https://wa.me/2348153765443" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30 hover:border-[#25D366]/60 font-semibold rounded-xl transition hover:-translate-y-1"
-            >
-              <WhatsAppIcon size={20} />
-              <span>WhatsApp</span>
-            </a>
-            
-            <a 
-              href="https://github.com/brighto7700" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-xl transition border border-gray-700 hover:border-gray-500 hover:-translate-y-1"
-            >
-              <Github size={20} />
-              <span>GitHub</span>
-            </a>
-            
-            <a 
-              href="https://linkedin.com/in/brighto7700" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] border border-[#0A66C2]/30 hover:border-[#0A66C2]/60 font-semibold rounded-xl transition hover:-translate-y-1"
-            >
-              <Linkedin size={20} />
-              <span>LinkedIn</span>
-            </a>
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Ready to Build?</h2>
+              <p className="text-slate-400 mb-12 max-w-2xl mx-auto text-lg md:text-xl">
+                Whether you're looking to collaborate on a new platform, need high-level technical writing, or just want to talk shop—my inbox is always open.
+              </p>
+              
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                <a 
+                  href="mailto:brighto7700@gmail.com" 
+                  className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-white text-slate-950 font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1"
+                >
+                  <Mail size={20} />
+                  <span>Email Me</span>
+                </a>
+
+                <a 
+                  href="https://wa.me/2348153765443" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30 hover:border-[#25D366]/60 font-semibold rounded-xl transition-all hover:-translate-y-1"
+                >
+                  <WhatsAppIcon size={20} />
+                  <span>WhatsApp</span>
+                </a>
+                
+                <a 
+                  href="https://github.com/brighto7700" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl transition-all border border-white/10 hover:border-white/30 hover:-translate-y-1"
+                >
+                  <Github size={20} />
+                  <span>GitHub</span>
+                </a>
+                
+                <a 
+                  href="https://linkedin.com/in/brighto7700" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] border border-[#0A66C2]/30 hover:border-[#0A66C2]/60 font-semibold rounded-xl transition-all hover:-translate-y-1"
+                >
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-gray-800/60 pt-8 pb-8 text-center px-6">
-        <div className="flex justify-center items-center gap-6 text-gray-500 mb-6">
-          <a href="https://wa.me/2348153765443" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition" title="WhatsApp">
-            <WhatsAppIcon size={20} />
+      <footer className="border-t border-white/5 pt-10 pb-8 text-center px-6 mt-12 bg-slate-950">
+        <div className="flex justify-center items-center gap-8 text-slate-500 mb-8">
+          <a href="https://wa.me/2348153765443" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors" title="WhatsApp">
+            <WhatsAppIcon size={22} />
           </a>
-          <a href="https://www.sitepoint.com/author/bright-emmanuel/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="SitePoint">
-            <BookOpen size={20} />
+          <a href="https://www.sitepoint.com/author/bright-emmanuel/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors" title="SitePoint">
+            <BookOpen size={22} />
           </a>
-          <a href="https://linkedin.com/in/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="LinkedIn">
-            <Linkedin size={20} />
+          <a href="https://linkedin.com/in/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors" title="LinkedIn">
+            <Linkedin size={22} />
           </a>
-          <a href="https://github.com/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition" title="GitHub">
-            <Github size={20} />
+          <a href="https://github.com/brighto7700" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="GitHub">
+            <Github size={22} />
           </a>
         </div>
-        <p className="text-gray-500 text-sm">
-          Designed & Built by <span className="text-gray-300">Bright Emmanuel</span>
+        <p className="text-slate-500 text-sm font-medium">
+          Designed & Built by <span className="text-slate-300">Bright Emmanuel</span>
         </p>
-        <p className="text-gray-600 text-xs mt-2">© {new Date().getFullYear()} All rights reserved.</p>
+        <p className="text-slate-600 text-xs mt-3 tracking-widest uppercase">© {new Date().getFullYear()} All rights reserved.</p>
       </footer>
     </div>
   );

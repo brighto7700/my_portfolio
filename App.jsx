@@ -125,6 +125,73 @@ export default function App() {
           </div>
         </section>
 
+        {/* Redesigned About Section - Fixed Aspect Ratio & Privacy */}
+        <section id="about" className="mb-32 scroll-mt-32">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            
+            <div className="md:col-span-7 space-y-6">
+              <div className="flex items-center gap-4 mb-6">
+                <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+                  <User className="text-cyan-400" /> About The Builder
+                </h2>
+              </div>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a full-stack developer and technical writer based in Nigeria. 
+              </p>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                I am currently balancing my JUPEB program to pursue a Bachelor of Computer Science, while architecting real-world applications. The catch? <strong className="text-white">Every single line of code, deployment, and article is written on a Tecno Android phone using Termux.</strong>
+              </p>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                I believe constraints breed innovation. That philosophy led me to build Forge, and it drives me to write technical deep-dives for platforms like DEV and SitePoint to help the next generation of developers.
+              </p>
+              
+              <div className="pt-6">
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">The Mobile Stack</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Termux', 'Next.js 14', 'Supabase', 'Go (Golang)', 'Python', 'Node.js', 'pxxl.app', 'Vercel'].map((tech) => (
+                    <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 font-medium shadow-sm hover:border-cyan-500/50 transition-colors cursor-default">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <div className="md:col-span-5 relative group mt-10 md:mt-0">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+              
+              {/* FIXED IMAGE HEIGHT: Square on mobile, 4:5 on desktop */}
+              <div className="aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
+                <img 
+                  src={profilePhoto} 
+                  alt="Bright Emmanuel" 
+                  className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-4 md:-left-12 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl z-20 font-mono text-xs hover:-translate-y-2 transition-transform duration-500">
+                <div className="flex gap-1.5 mb-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="text-slate-300">
+                  <span className="text-blue-400">const</span> <span className="text-yellow-300">setup</span> = {'{'}
+                  <br/>
+                  &nbsp;&nbsp;hardware: <span className="text-green-400">'Android Device'</span>,
+                  <br/>
+                  &nbsp;&nbsp;environment: <span className="text-green-400">'Termux'</span>,
+                  <br/>
+                  &nbsp;&nbsp;excuses: <span className="text-blue-400">null</span>
+                  <br/>
+                  {'}'};
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Other Projects (Bento Grid) */}
         <section className="mb-32">
           <div className="grid md:grid-cols-2 gap-6">
@@ -165,72 +232,6 @@ export default function App() {
                 <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Python</span>
                 <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Groq API</span>
                 <span className="text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-md text-xs font-semibold tracking-wide">Render</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Redesigned About Section */}
-        <section id="about" className="mb-32 scroll-mt-32">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            
-            <div className="md:col-span-7 space-y-6">
-              <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-                  <User className="text-cyan-400" /> About The Builder
-                </h2>
-              </div>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a 16-year-old developer and technical writer based in Nigeria. 
-              </p>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                I am currently balancing my JUPEB program to pursue Computer Science, while architecting real-world applications. The catch? <strong className="text-white">Every single line of code, deployment, and article is written on a Tecno Spark 8c Android phone using Termux.</strong>
-              </p>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                I believe constraints breed innovation. That philosophy is what led me to build Forge, and it's what drives me to write technical deep-dives for platforms like Forem and SitePoint to help the next generation of mobile developers.
-              </p>
-              
-              <div className="pt-6">
-                <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">The Mobile Stack</h3>
-                <div className="flex flex-wrap gap-3">
-                  {['Termux', 'Next.js 14', 'Supabase', 'Go (Golang)', 'Python', 'Node.js', 'pxxl.app', 'Vercel'].map((tech) => (
-                    <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 font-medium shadow-sm hover:border-cyan-500/50 transition-colors cursor-default">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div className="md:col-span-5 relative group mt-10 md:mt-0">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
-              
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
-                <img 
-                  src={profilePhoto} 
-                  alt="Bright Emmanuel" 
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-              </div>
-
-              <div className="absolute -bottom-8 -left-8 md:-left-12 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl z-20 font-mono text-xs hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex gap-1.5 mb-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                </div>
-                <div className="text-slate-300">
-                  <span className="text-blue-400">const</span> <span className="text-yellow-300">setup</span> = {'{'}
-                  <br/>
-                  &nbsp;&nbsp;hardware: <span className="text-green-400">'Tecno Spark 8c'</span>,
-                  <br/>
-                  &nbsp;&nbsp;environment: <span className="text-green-400">'Termux'</span>,
-                  <br/>
-                  &nbsp;&nbsp;excuses: <span className="text-blue-400">null</span>
-                  <br/>
-                  {'}'};
-                </div>
               </div>
             </div>
           </div>

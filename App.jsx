@@ -139,7 +139,7 @@ export default function App() {
                 Hi, I'm <strong className="text-white font-medium">Bright Unekwuojo Emmanuel</strong>. I'm a full-stack developer and technical writer based in Nigeria. 
               </p>
               <p className="text-slate-400 text-lg leading-relaxed">
-                I am currently balancing my JUPEB program to pursue a Bachelor of Computer Science, while architecting real-world applications. The catch? <strong className="text-white">Every single line of code, deployment, and article is written on a Tecno Android phone using Termux.</strong>
+                I am currently balancing my JUPEB program, while architecting real-world applications.
               </p>
               <p className="text-slate-400 text-lg leading-relaxed">
                 I believe constraints breed innovation. That philosophy led me to build Forge, and it drives me to write technical deep-dives for platforms like DEV and SitePoint to help the next generation of developers.

@@ -125,7 +125,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Redesigned About Section - Reverted to Tall Portrait */}
+        {/* Redesigned About Section */}
         <section id="about" className="mb-32 scroll-mt-32">
           <div className="grid md:grid-cols-12 gap-12 items-center">
             
@@ -136,7 +136,7 @@ export default function App() {
                 </h2>
               </div>
               <p className="text-slate-400 text-lg leading-relaxed">
-                Hi, I'm <strong className="text-white font-medium">Bright Emmanuel</strong>. I'm a full-stack developer and technical writer based in Nigeria. 
+                Hi, I'm <strong className="text-white font-medium">Bright Unekwuojo Emmanuel</strong>. I'm a full-stack developer and technical writer based in Nigeria. 
               </p>
               <p className="text-slate-400 text-lg leading-relaxed">
                 I am currently balancing my JUPEB program to pursue a Bachelor of Computer Science, while architecting real-world applications. The catch? <strong className="text-white">Every single line of code, deployment, and article is written on a Tecno Android phone using Termux.</strong>
@@ -160,11 +160,10 @@ export default function App() {
             <div className="md:col-span-5 relative group mt-10 md:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
               
-              {/* RESTORED TALL PORTRAIT ASPECT RATIO */}
               <div className="aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative z-10 shadow-2xl">
                 <img 
                   src={profilePhoto} 
-                  alt="Bright Emmanuel" 
+                  alt="Bright Unekwuojo Emmanuel" 
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
@@ -349,7 +348,7 @@ export default function App() {
           </a>
         </div>
         <p className="text-slate-500 text-sm font-medium">
-          Designed & Built by <span className="text-slate-300">Bright Emmanuel</span>
+          Designed & Built by <span className="text-slate-300">Bright Unekwuojo Emmanuel</span>
         </p>
         <p className="text-slate-600 text-xs mt-3 tracking-widest uppercase">© {new Date().getFullYear()} All rights reserved.</p>
       </footer>

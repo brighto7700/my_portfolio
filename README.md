@@ -89,7 +89,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser. 🎉
 
 If you fork this repo for your own portfolio, update the following:
 
-- [ ] Replace `public/og-main.png` with your own Open Graph image (recommended: **1200 × 630px**)
+- [ ] Replace `public/profile_pic.png` with your own Open Graph image (recommended: **1200 × 630px**)
 - [ ] Update the **JSON-LD structured data** in `index.html` with your personal links and domain
 - [ ] Update the **canonical URL** and **meta descriptions** in `<head>`
 - [ ] Update the `siteName` and `author` fields throughout
